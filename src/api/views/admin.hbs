@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>Registerer | Admin</title>
+  </head>
+
+  <body class="flex justify-center items-center min-h-screen">
+    {{#if is_admin}}
+    <div>
+      <table class="table-auto  border-cyan-400 border-collapse border bg-slate-200">
+        <thead>
+          <tr>
+            <th class="border border-slate-600 px-4 py-2">First Name</th>
+            <th class="border border-slate-600 px-4 py-2">Last Name</th>
+            <th class="border border-slate-600 px-4 py-2">Email</th>
+            <th class="border border-slate-600 px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each accounts}}
+          <tr>
+            <td class="border border-slate-600 px-4 py-2">{{firstName}}</td>
+            <td class="border border-slate-600 px-4 py-2">{{lastName}}</td>
+            <td class="border border-slate-600 px-4 py-2">{{email}}</td>
+            <td class="border border-slate-600 px-4 py-2">
+              <a href="account/update/{{accountID}}"><i data-edit-btn role="button" class="bi bi-pen"></i></a>
+              <button onclick="(() => handleDelete({{accountID}}))()"><i data-delete-btn role=" button"
+                  class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button id="logoutButton" class="btn">Logout</button>
+    </div>
+    {{/if}}
+
+    {{#if is_user}}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="vstack gap-3">
+        <h1 class="text-center">You're not authorize to view this page.</h1>
+        <button id="logoutButton" class="btn w-auto">Logout</button>
+      </div>
+    </div>
+    {{/if}}
+
+    <script>
+      const END_POINT = "http://localhost:8000";
+      const logoutButton = document.querySelector("#logoutButton");
+
+      const handleDelete = async (accountID) => {
+        await fetch(`${END_POINT}/account/delete/${accountID}`, {
+          method: "DELETE",
+        });
+        window.location.href = `${END_POINT}/admin`;
+      };
+
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      logoutButton.addEventListener("click", () => {
+        document.cookie = null;
+        window.location.href = `${END_POINT}/admin`;
+      });
+
+
+
+    </script>
+  </body>
+
+</html>

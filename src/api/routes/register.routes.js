@@ -5,7 +5,13 @@ module.exports = (app) => {
 
   router.get("/", controller.view)
 
-  router.post("/", middleware.registerUser, controller.registerUser)
+  router.post(
+    "/",
+    middleware.validateEmptyValue,
+    middleware.validateEmailIfExist,
+    middleware.validatePasswordMatch,
+    controller.registerUser
+  )
 
   app.use("/register", router)
 }

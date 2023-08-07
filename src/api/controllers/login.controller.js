@@ -1,10 +1,22 @@
 const path = require("path")
+const jwt = require("jsonwebtoken")
+
+const connect = require("../../config/database")
 
 exports.view = (req, res) => {
-  console.log(path.resolve())
-  res.render(path.resolve("src", "api", "views", "index.hbs"))
+  res.render("login")
 }
 
-exports.loginUser = (req, res) => {
-  console.log(req.body)
+exports.loginUser = async (req, res) => {
+  try {
+    const account = await req.body
+
+    const accessToken = jwt.sign(account, process.env.ACCESS_TOKEN)
+
+    return res
+      .cookie("account", accessToken, { maxAge: 900000 })
+      .redirect("/admin")
+  } catch (error) {
+    console.log(error)
+  }
 }

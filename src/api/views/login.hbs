@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>Registerer | Login</title>
+  </head>
+
+  <body>
+    <div class="">
+      <div class="">
+
+        {{#if message}}
+        <div class={{""}} role="alert">
+          {{message}}
+        </div>
+        {{/if}}
+
+        <div class="">
+          Login
+        </div>
+        <div class="">
+          <form id="loginForm" action="http://localhost:8000/login" method="POST">
+            <fieldset>
+
+              <div class="">
+                <label for="email" class="">Email address</label>
+                <input type="email" class="" id="email" name="email" aria-describedby="email" placeholder="Enter email"
+                  value="prince@email.com" />
+              </div>
+
+
+              <div class="">
+                <label for="password" class="">Password</label>
+                <input type="password" class="" id="password" name="password" aria-describedby="password"
+                  placeholder="Enter password" value="password" />
+              </div>
+
+              <button type="submit" class="">Login</button>
+            </fieldset>
+          </form>
+          <p class="">No account yet? <a href="http://localhost:8000/register">Register here</a></a></h3>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const passwordFields = document.querySelectorAll("[data-show-password]");
+
+
+      passwordFields.forEach((passwordField) => {
+        passwordField.addEventListener('click', function () {
+          if (passwordField.type === "password") {
+            passwordField.type = 'text';
+            showPassword.children[0].classList.remove('bi-eye');
+            showPassword.children[0].classList.add('bi-eye-fill');
+          } else {
+            passwordField.type = 'password';
+            showPassword.children[0].classList.remove('bi-eye-fill');
+            showPassword.children[0].classList.add('bi-eye');
+          }
+        });
+      })
+
+    </script>
+  </body>
+
+</html>
