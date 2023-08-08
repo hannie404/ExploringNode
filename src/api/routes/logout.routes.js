@@ -1,17 +1,8 @@
 module.exports = (app) => {
-  const controller = require("../controllers/login.controller")
-  const middleware = require("../middlewares/login.middleware")
+  const controller = require("../controllers/logout.controller")
   const router = require("express").Router()
 
-  router.get("/", login.view)
+  router.get("/", controller.logoutUser)  
 
-  router.post(
-    "/",
-    middleware.validateEmptyValue,
-    middleware.validateEmail,
-    middleware.validatePassword,
-    controller.loginUser
-  )
-
-  app.use("/login", router)
+  app.use("/logout", router)
 }

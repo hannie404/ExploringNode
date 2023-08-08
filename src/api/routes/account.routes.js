@@ -9,5 +9,7 @@ module.exports = (app) => {
 
   router.delete("/delete/:accountID", controller.deleteByPk)
 
+  router.get("/skills/:accountID", controller.skillView)
+
   app.use("/account", router)
 }

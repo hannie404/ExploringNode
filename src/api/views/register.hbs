@@ -1,95 +1,134 @@
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./static/css/style.css">
-		<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-		<title>Register Account | Register</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <title>Register Account | Register</title>
+  </head>
 
-	<body class="min-w-screen flex justify-center items-center">
-		<div class="">
+  <body
+    class="min-h-screen flex justify-center items-center bg-slate-900 text-white"
+  >
+    <div class="">
 
-			{{#if message}}
-			<div class="" role="alert">
-				{{message}}
-			</div>
-			{{/if}}
+      {{#if message}}
+        <div class="" role="alert">
+          {{message}}
+        </div>
+      {{/if}}
 
-			<h1 class="text-4xl font-medium mb-4">Register</h1>
+      <h1 class="text-5xl font-medium mb-4">Register</h1>
 
-			<div class="">
-				<form id="registerForm" accept="/register" method="POST">
-					<fieldset>
-						<div class="">
-							<label for="firstName" class="">First name</label>
-							<input type="firstName" class="" id="firstName" name="firstName" aria-describedby="firstName"
-								placeholder="Enter first name" />
-						</div>
+      <div class="border border-slate-700 bg-slate-800 rounded-lg p-4">
+        <form class="w-[30rem]" action="/register" method="POST">
+          <fieldset>
+            <div class="mb-4">
+              <label for="firstName" class="block mb-2">First name</label>
+              <input
+                type="firstName"
+                class="border mb-2 px-2 py-1 w-full text-black rounded-lg focus:outline-none focus:ring-4 focus:ring-pink-500"
+                id="firstName"
+                name="firstName"
+                aria-describedby="firstName"
+                placeholder="Enter first name"
+              />
+            </div>
 
-						<div class="">
-							<label for="lastName" class="">Last name</label>
-							<input type="lastName" class="" id="lastName" name="lastName" aria-describedby="lastName"
-								placeholder="Enter last name" />
-						</div>
+            <div class="mb-4">
+              <label for="lastName" class="block mb-2">Last name</label>
+              <input
+                type="lastName"
+                class="border mb-2 px-2 py-1 w-full text-black rounded-lg focus:outline-none focus:ring-4 focus:ring-pink-500"
+                id="lastName"
+                name="lastName"
+                aria-describedby="lastName"
+                placeholder="Enter last name"
+              />
+            </div>
 
-						<div class="">
-							<label for="email" class="">Email address</label>
-							<input type="email" class="" id="email" name="email" aria-describedby="email" placeholder="Enter email" />
-						</div>
+            <div class="mb-4">
+              <label for="email" class="block mb-2">Email address</label>
+              <input
+                type="email"
+                class="border mb-2 px-2 py-1 w-full text-black rounded-lg focus:outline-none focus:ring-4 focus:ring-pink-500"
+                id="email"
+                name="email"
+                aria-describedby="email"
+                placeholder="Enter email"
+              />
+            </div>
 
-						<div class="">
-							<label for="password" class="">Password</label>
-							<div class="">
-								<input type="password" class="" name="password" id="password" aria-describedby="password"
-									placeholder="Create password" />
-								<span data-show-password class=""><i class='bx bx-show'></i></span>
-							</div>
-						</div>
+            <div class="mb-4">
+              <label for="password" class="block mb-2">Password</label>
+              <div class="">
+                <input
+                  type="password"
+                  class="border mb-2 px-2 py-1 w-full text-black rounded-lg focus:outline-none focus:ring-4 focus:ring-pink-500"
+                  name="password"
+                  id="password"
+                  aria-describedby="password"
+                  placeholder="Create password"
+                />
+                <span data-show-password class=""><i
+                    class="bx bx-show"
+                  ></i></span>
+              </div>
+            </div>
 
-						<div class="">
-							<label for="confirmPassword" class="">Confirm Password</label>
-							<div class="">
-								<input type="password" class="" name="confirmPassword" id="confirmPassword" aria-describedby="password"
-									placeholder="Confirm password" />
-								<span data-show-password class=""><i class='bx bx-show'></i></span>
-							</div>
-						</div>
+            <div class="mb-4">
+              <label for="confirmPassword" class="block mb-2">Confirm Password</label>
+              <div class="">
+                <input
+                  type="password"
+                  class="border mb-2 px-2 py-1 w-full text-black rounded-lg focus:outline-none focus:ring-4 focus:ring-pink-500"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  aria-describedby="password"
+                  placeholder="Confirm password"
+                />
+                <span data-show-password class=""><i
+                    class="bx bx-show"
+                  ></i></span>
+              </div>
+            </div>
 
-						<button type="submit" class="">Register</button>
-					</fieldset>
-					<p class="">Already have an account? <a href="http://localhost:8000/login">Login</a></a></h3>
-				</form>
-			</div>
+            <button
+              type="submit"
+              class="rounded block ms-auto bg-pink-600 hover:outline-none hover:bg-pink-500 px-3 py-2 focus:outline-pink-500 focus:outline-2"
+            >Register</button>
+          </fieldset>
+          <p class="text-center text-slate-300">Already have an account?
+            <a
+              class="text-pink-500 hover:text-pink-400 focus:outline-pink-500 focus:outline-2"
+              href="http://localhost:8000/login"
+            >Login</a></p>
+        </form>
+      </div>
 
-			<div class="">
-				<Button id="generateFakeUserBtn" type="button" class="">Generate Fake User</Button>
-			</div>
-		</div>
+      <div class="my-4">
+        <Button
+          id="generateFakeUserBtn"
+          type="button"
+          class="rounded block mx-auto bg-pink-600 hover:bg-pink-500 px-3 py-2 focus:outline-pink-500 focus:outline-2"
+        >Generate Fake User</Button>
+      </div>
+    </div>
 
-		<script>
-			const FAKE_USER_ENDPOINT = "http://localhost:8000/api/fakeuser";
-			const generateFakeUserBtn = document.querySelector("#generateFakeUserBtn");
-
-			generateFakeUserBtn.addEventListener("click", async () => {
-				const response = await fetch(FAKE_USER_ENDPOINT);
-
-				const {
-					firstName,
-					lastName,
-					password
-				} = await response.json();
-
-				document.querySelector("#firstName").value = firstName;
-				document.querySelector("#lastName").value = lastName;
-				document.querySelector("#email").value = `${(firstName + lastName).toLowerCase()}@gmail.com`;
-				document.querySelector("#password").value = password;
-				document.querySelector("#confirmPassword").value = password;
-			});
-
-			const showPasswordButton = document.querySelectorAll('[data-show-password]')
-		</script>firstName
-	</body>
+    <script>
+      const FAKE_USER_ENDPOINT = "http://localhost:8000/api/fakeuser"; const
+      generateFakeUserBtn = document.querySelector("#generateFakeUserBtn");
+      generateFakeUserBtn.addEventListener("click", async () => { const response
+      = await fetch(FAKE_USER_ENDPOINT); const { firstName, lastName, password }
+      = await response.json(); document.querySelector("#firstName").value =
+      firstName; document.querySelector("#lastName").value = lastName;
+      document.querySelector("#email").value = `${(firstName +
+      lastName).toLowerCase()}@gmail.com`;
+      document.querySelector("#password").value = password;
+      document.querySelector("#confirmPassword").value = password; }); const
+      showPasswordButton = document.querySelectorAll('[data-show-password]')
+    </script>
+  </body>
 
 </html>

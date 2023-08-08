@@ -1,68 +1,82 @@
-<!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="./static/css/style.css" />
     <title>Registerer | Login</title>
   </head>
 
-  <body>
+  <body
+    class="min-h-screen flex justify-center items-center bg-slate-700 text-white"
+  >
     <div class="">
-      <div class="">
 
-        {{#if message}}
+      {{#if message}}
         <div class={{""}} role="alert">
           {{message}}
         </div>
-        {{/if}}
+      {{/if}}
 
-        <div class="">
-          Login
-        </div>
-        <div class="">
-          <form id="loginForm" action="http://localhost:8000/login" method="POST">
-            <fieldset>
+      <div class="text-5xl font-medium mb-4">
+        Login
+      </div>
 
-              <div class="">
-                <label for="email" class="">Email address</label>
-                <input type="email" class="" id="email" name="email" aria-describedby="email" placeholder="Enter email"
-                  value="prince@email.com" />
-              </div>
+      <div class="border rounded-lg p-4 bg-">
+        <form
+          class="w-[30rem]"
+          action="http://localhost:8000/login"
+          method="POST"
+        >
+          <fieldset>
 
+            <div class="">
+              <label for="email" class="block mb-2">Email address</label>
+              <input
+                type="email"
+                class="border mb-2 px-2 py-1 w-full text-black"
+                id="email"
+                name="email"
+                aria-describedby="email"
+                placeholder="Enter email"
+                value="prince@email.com"
+              />
+            </div>
 
-              <div class="">
-                <label for="password" class="">Password</label>
-                <input type="password" class="" id="password" name="password" aria-describedby="password"
-                  placeholder="Enter password" value="password" />
-              </div>
+            <div class="">
+              <label for="password" class="block mb-2">Password</label>
+              <input
+                type="password"
+                class="border mb-2 px-2 py-1 w-full text-black"
+                id="password"
+                name="password"
+                aria-describedby="password"
+                placeholder="Enter password"
+                value="password"
+              />
+            </div>
 
-              <button type="submit" class="">Login</button>
-            </fieldset>
-          </form>
-          <p class="">No account yet? <a href="http://localhost:8000/register">Register here</a></a></h3>
-        </div>
+            <button
+              type="submit"
+              class="block border px-4 py-2 rounded-md ms-auto bg-state-500"
+            >Login</button>
+          </fieldset>
+        </form>
+        <p class="text-center">No account yet?
+          <a href="http://localhost:8000/register">Register here</a></p>
       </div>
     </div>
 
     <script>
       const passwordFields = document.querySelectorAll("[data-show-password]");
-
-
       passwordFields.forEach((passwordField) => {
-        passwordField.addEventListener('click', function () {
-          if (passwordField.type === "password") {
-            passwordField.type = 'text';
-            showPassword.children[0].classList.remove('bi-eye');
-            showPassword.children[0].classList.add('bi-eye-fill');
-          } else {
-            passwordField.type = 'password';
-            showPassword.children[0].classList.remove('bi-eye-fill');
-            showPassword.children[0].classList.add('bi-eye');
-          }
-        });
-      })
+      passwordField.addEventListener('click', function () { if
+      (passwordField.type === "password") { passwordField.type = 'text';
+      showPassword.children[0].classList.remove('bi-eye');
+      showPassword.children[0].classList.add('bi-eye-fill'); } else {
+      passwordField.type = 'password';
+      showPassword.children[0].classList.remove('bi-eye-fill');
+      showPassword.children[0].classList.add('bi-eye'); } }); })
 
     </script>
   </body>

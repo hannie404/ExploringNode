@@ -1,52 +1,80 @@
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./static/css/style.css">
-		<title>Register Account | Update</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/style.css" />
+    <title>Register Account | Update</title>
+  </head>
 
-	<body>
-		<div class="">
-			<div class="">
+  <body class="flex justify-center items-center min-h-screen">
+    <div class="">
 
-				{{#if message}}
-				<div class="" role="alert">
-					{{message}}
-				</div>
-				{{/if}}
+      {{#if message}}
+        <div class="" role="alert">
+          {{message}}
+        </div>
+      {{/if}}
 
-				<div class="">
-					Update account
-				</div>
-				<div class="">
-					<form action="/account/update/{{account.accountID}}" method="PUT">
-						<fieldset>
-							<div class="mb-3">
-								<label for="firstName" class="">First name</label>
-								<input type="firstName" class="" id="firstName" name="firstName" aria-describedby="firstName"
-									placeholder="Enter first name" value={{account.firstName}} />
-							</div>
+      <div class="text-5xl font-medium mb-4">
+        Update account
+      </div>
 
-							<div class="mb-3">
-								<label for="lastName" class="">Last name</label>
-								<input type="lastName" class="" id="lastName" name="lastName" aria-describedby="lastName"
-									placeholder="Enter last name" value={{account.lastName}} />
-							</div>
+      <div class="border rounded-lg p-4 bg">
+        <form
+          class="w-[30rem]"
+          action="/account/update/{{account.accountID}}"
+          method="PUT"
+        >
+          <fieldset>
+            <div class="mb-3">
+              <label for="firstName" class="block mb-2">First name</label>
+              <input
+                type="firstName"
+                class="border mb-2 px-2 py-1 w-full text-blac"
+                id="firstName"
+                name="firstName"
+                aria-describedby="firstName"
+                placeholder="Enter first name"
+                value={{account.firstName}}
+              />
+            </div>
 
-							<div class="mb-3">
-								<label for="email" class="">Email address</label>
-								<input type="email" class="" id="email" name="email" aria-describedby="email" placeholder="Enter email"
-									value={{account.email}} readonly />
-							</div>
+            <div class="mb-3">
+              <label for="lastName" class="block mb-2">Last name</label>
+              <input
+                type="lastName"
+                class="border mb-2 px-2 py-1 w-full text-blac"
+                id="lastName"
+                name="lastName"
+                aria-describedby="lastName"
+                placeholder="Enter last name"
+                value={{account.lastName}}
+              />
+            </div>
 
-							<button type="submit" class="">Save</button>
-						</fieldset>
-					</form>
-				</div>
-			</div>
-		</div>
-	</body>
+            <div class="mb-3">
+              <label for="email" class="block mb-2">Email address</label>
+              <input
+                type="email"
+                class="border mb-2 px-2 py-1 w-full text-blac"
+                id="email"
+                name="email"
+                aria-describedby="email"
+                placeholder="Enter email"
+                value={{account.email}}
+                readonly
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="block border px-4 py-2 rounded-md ms-auto bg-state-500"
+            >Save</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
 
 </html>
